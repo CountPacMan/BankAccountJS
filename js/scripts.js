@@ -1,4 +1,5 @@
 var BankAccount = {
+  name: null,
   balance: 0,
 
   deposit: function(amount) {
@@ -11,10 +12,17 @@ var BankAccount = {
 
 
 jQuery(document).ready(function() {
-  $("#").focus();
-  $("#t").submit(function(event) {
+  $("#name").focus();
+  $("#create-account").submit(function(event) {
+    var name = $("#name").val();
+    var initialDeposit = parseFloat($("#initial").val());
+    var newAccount = Object.create(BankAccount);
+    newAccount.name = name;
+    newAccount.deposit(initialDeposit);
+    $("form#create-account").val("").hide();
 
-    $("#result").show();
+    $("#balance").text(newAccount.balance.toFixed(2));
+    $("#user-account").show();
     event.preventDefault();
   });
 });

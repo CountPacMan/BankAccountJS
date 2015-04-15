@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-2.1.3.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Bank Account</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bank Account</h1>
+      <img src="img/dolla.gif" alt="serious bank symbol">
+      <hr/>
+      <form id="create-account">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" required>
+        </div>
+        <div class="form-group">
+          <label for="initial">Initial deposit</label>
+          <input id="initial" type="float" required>
+        </div>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+
+      <div id="user-account">
+        <h2 id="user-name"></h2>
+        <h3>Current balance: $<span id="balance" class="text-danger"></span></h3>
+        <hr/>
+        <form id="mod-account">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" required>
+          </div>
+          <div class="form-group">
+            <label for="initial">Initial deposit</label>
+            <input id="initial" type="number" required>
+          </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
