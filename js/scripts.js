@@ -31,7 +31,15 @@ jQuery(document).ready(function() {
       event.preventDefault();
       var deposit = parseFloat($("#deposit").val());
       newAccount.deposit(deposit);
-      console.log(newAccount.balance);
+      $("input#deposit").val("");
+      $("#balance").text(newAccount.balance.toFixed(2));
+    });
+
+    $("#withdraw-account").submit(function(event) {
+      event.preventDefault();
+      var withdraw = parseFloat($("#withdraw").val());
+      newAccount.withdraw(withdraw);
+      $("input#withdraw").val("");
       $("#balance").text(newAccount.balance.toFixed(2));
     });
   });
