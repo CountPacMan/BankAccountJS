@@ -3,6 +3,9 @@ var BankAccount = {
 
   deposit: function(amount) {
     this.balance += amount;
+  },
+  withdraw: function(amount) {
+    this.balance -= amount;
   }
 };
 
