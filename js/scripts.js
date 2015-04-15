@@ -14,6 +14,7 @@ var BankAccount = {
 jQuery(document).ready(function() {
   $("#name").focus();
   $("#create-account").submit(function(event) {
+    event.preventDefault();
     var name = $("#name").val();
     var initialDeposit = parseFloat($("#initial").val());
     var newAccount = Object.create(BankAccount);
@@ -25,16 +26,13 @@ jQuery(document).ready(function() {
     $("#create-account").hide();
     $("#user-name").text("Welcome, " + newAccount.name + "!");
     $("#user-account").show();
-    event.preventDefault();
-  });
 
-  $("#mod-account").submit(function(event) {
-    var deposit = parseFloat($("#deposit").val());
-    var withdrawal = parseFloat($("#withdraw").val());
-
-    
-
-
-    event.preventDefault();
+    $("#deposit-account").submit(function(event) {
+      event.preventDefault();
+      var deposit = parseFloat($("#deposit").val());
+      newAccount.deposit(deposit);
+      console.log(newAccount.balance);
+      $("#balance").text(newAccount.balance.toFixed(2));
+    });
   });
 });
