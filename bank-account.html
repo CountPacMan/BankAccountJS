@@ -19,21 +19,22 @@
         </div>
         <div class="form-group">
           <label for="initial">Initial deposit</label>
-          <input id="initial" type="float" required>
+          <input id="initial" type="number" step="0.01" required>
         </div>
         <button type="submit" class="btn btn-info">Submit</button>
       </form>
 
       <div id="user-account">
         <h2 id="user-name"></h2>
-        <h3>Current balance: $<span id="balance" class="text-danger"></span></h3>
+        <h3 id="user-balance">Current balance: $<span id="balance" class="text-danger"></span></h3>
+        <p id="penalty">Your account is overdrawn! Poverty fee of $35 has been charged to your account. Have a nice day :)</p>
         <hr/>
         <div class="row">
           <div class="col-md-6">
             <form id="deposit-account">
               <div class="form-group">
                 <label for="deposit">Deposit funds: </label>
-                <input id="deposit" type="text">
+                <input id="deposit" type="number" step="0.01">
               </div>
               <button type="submit" class="btn btn-info">Deposit</button>
             </form>
@@ -42,7 +43,7 @@
             <form id="withdraw-account">
               <div class="form-group">
                 <label for="withdraw">Withdraw funds: </label>
-                <input id="withdraw" type="number">
+                <input id="withdraw" type="number" step="0.01">
               </div>
               <button type="submit" class="btn btn-info">Withdraw</button>
             </form>

@@ -26,6 +26,9 @@ jQuery(document).ready(function() {
     $("#create-account").hide();
     $("#user-name").text("Welcome, " + newAccount.name + "!");
     $("#user-account").show();
+    if (newAccount.balance <= 0) {
+      $("#withdraw-account").hide();
+    }
 
     $("#deposit-account").submit(function(event) {
       event.preventDefault();
@@ -33,6 +36,13 @@ jQuery(document).ready(function() {
       newAccount.deposit(deposit);
       $("input#deposit").val("");
       $("#balance").text(newAccount.balance.toFixed(2));
+      if (newAccount.balance <= 0) {
+        $("#withdraw-account").hide();
+      } else {
+        $("#user-balance").removeClass("text-danger");
+        $("#penalty").hide();
+        $("#withdraw-account").show();
+      }
     });
 
     $("#withdraw-account").submit(function(event) {
@@ -40,6 +50,12 @@ jQuery(document).ready(function() {
       var withdraw = parseFloat($("#withdraw").val());
       newAccount.withdraw(withdraw);
       $("input#withdraw").val("");
+      if (newAccount.balance < 0) {
+        newAccount.withdraw(35);
+        $("#user-balance").addClass("text-danger");
+        $("#penalty").show();
+        $("#withdraw-account").hide();
+      }
       $("#balance").text(newAccount.balance.toFixed(2));
     });
   });
