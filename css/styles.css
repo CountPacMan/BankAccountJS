@@ -6,3 +6,8 @@ img {
   width: 25%;
   height: 25%;
 }
+
+.btn,
+.form-group {
+  display: inline-block;
+}

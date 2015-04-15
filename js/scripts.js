@@ -22,7 +22,19 @@ jQuery(document).ready(function() {
     $("form#create-account").val("").hide();
 
     $("#balance").text(newAccount.balance.toFixed(2));
+    $("#create-account").hide();
+    $("#user-name").text("Welcome, " + newAccount.name + "!");
     $("#user-account").show();
+    event.preventDefault();
+  });
+
+  $("#mod-account").submit(function(event) {
+    var deposit = parseFloat($("#deposit").val());
+    var withdrawal = parseFloat($("#withdraw").val());
+
+    
+
+
     event.preventDefault();
   });
 });
